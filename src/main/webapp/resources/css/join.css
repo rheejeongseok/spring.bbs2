@@ -1,0 +1,275 @@
+.main_tp{
+	position:absolute;
+	width: 40%;
+    max-width: 488px;
+    left: 3%;
+    bottom: 11.5%;
+    padding-bottom: 20px;
+    z-index: 5;
+}
+.section1{
+	height:300px;
+	position: relative;
+	min-width:975px;
+}
+.section1 li{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}
+.section1 li>a>img{
+	width:100%;
+	height:100%;
+}
+.section1 .btns{
+	position:absolute;
+	width:145px;
+	z-index:10;
+	left:50%;
+	bottom:8%;
+	margin-left:-72.5px;
+}
+.section1 .btn{
+
+	display:inline-block;
+	width:59px;
+	height:59px;
+	margin:0 5px;
+	cursor: pointer;
+	background:url('../img/slider_arrow.png');
+	z-index:10;
+
+}
+.section1 .next{
+	background-position: -60px 0;
+
+}
+.section1 div[class^=slider_line] {
+	position:absolute !important;
+	width:93%;
+	height:1px;
+	background:white;
+	bottom:8%;
+	margin-bottom:27px;
+	opacity: 0.5;
+	z-index:2;
+	margin-left:15px;
+
+}
+.section1 .slider_line1{
+	left:2%;
+}
+.section1 .slider_line2{
+	right:2%;
+}
+.slide_num{
+	position: absolute;
+	left:50%;
+	bottom:2.5%;
+	margin-left:-25px;
+	color:white;
+	font-family: "Pinyon Script",cursive;
+    font-size: 20px;
+    line-height: 26px;
+    z-index: 5;
+}
+.section2{
+	min-width:975px;
+	position: relative;
+	background:#eeeae1;
+	width:100%;
+	padding:60px 0;
+}
+.section2 .loginwrap{
+	width:100%;
+}
+.login-form{
+	width:700px;
+	margin:0 auto;
+	background:white;
+	padding-bottom:20px;
+}
+.login-form span{
+	display: inline-block;
+	width:100%;
+	text-align: center;
+	font-size:18px;
+	margin-bottom:20px;
+	margin-top:30px;
+}
+.login-form table{
+	margin:0 auto;
+	border-collapse: collapse;
+
+
+}
+.login-form td{
+	padding:20px;
+	border:1px solid #dedede;
+}
+.login-form td:first-child{
+	text-align: center;
+	background:#bab8b8;
+}
+.login-form tr:last-child td {
+	background:none;
+	border:none;
+	text-align: right;
+	padding-top:20px;
+}
+.login-form tr:last-child td input {
+	display: inline-block;
+width: 100px;
+height: 40px;
+background-color: #ededed;
+border-color: #white;
+color: black;
+border-radius: 7px;
+border-bottom-color: transparent;
+border-right-color: transparent;
+cursor: pointer;
+text-align: center;
+line-height: 40px;
+
+}
+.check_id{
+        width: 120px;
+    border: none;
+    height: 40px;
+    background: #f9e0e0;
+}
+.login-form tr:last-child td input:first-child{
+	margin-right:20px;
+}
+.login-form td input[type="text"],.login-form td input[type="password"],.login-form td input[type="email"]{
+	width:200px;
+	display: inline-block;
+	height:40px;
+	padding-left:20px;
+	border:none;
+	background:#e4e4e4;
+}
+#postcode{
+    display: inline-block;
+    margin-bottom: 10px;
+}
+#roadAddress{
+    width:327px !important;
+    margin-bottom: 10px;
+}
+#jibunAddress{
+    width:327px !important;
+}
+#findaddr{
+    width: 120px;
+    border: none;
+    height: 40px;
+    background: #f9e0e0;
+}
+
+
+.section_wrap{
+    width: 80%;
+    margin: 0 auto;
+    background: white;
+    padding: 45px 20px;
+}
+
+.join_text{
+    text-align: center;
+    font-size: 18px;
+}
+
+.join_link a{
+    font-size: 14px;
+    display: block;
+    text-align: center;
+    color: #958f8f;
+    text-decoration: underline;
+
+}
+
+.joinresult{
+    padding: 162px 0 !important;
+}
+.modifyBtns{
+    text-align: center !important;
+}
+.usermodify{
+    width: 120px;
+    border: none;
+    height: 40px;
+    background: #f9e0e0;
+    margin-right: 15px;
+    display: inline-block;
+    line-height: 40px;
+}
+.userpwdchange{
+    width: 120px;
+    border: none;
+    height: 40px;
+    background: #f9e0e0;
+    margin-right: 15px;
+    display: inline-block;
+    line-height: 40px;
+}
+.popuserdelete{
+    width: 120px;
+    border: none;
+    height: 40px;
+    background: #f9e0e0;
+    margin-right: 15px;
+    display: inline-block;
+    line-height: 40px;
+}
+.info_title{
+    padding:20px 0 !important;
+}
+
+.userdel{
+    display:none;
+    position: fixed;
+    top:50%;
+    left:50%;
+    background:white;
+    width: 330px;
+    text-align: center;
+    border: 1px grey solid;
+    z-index:300;
+}
+.del_title{
+        padding: 10px 20px;
+    background: #ff9e9e;
+    text-align: center;
+}
+.del_text{
+    font-size: 14px;
+    padding: 10px;
+}
+.del_box{
+    
+}
+.del_box input{
+        border: none;
+    background: #d8d4d4;
+    width: 190px;
+    height: 40px;
+    padding-left: 20px;
+}
+.userdel .userdelete{
+        display: inline-block;
+    padding: 20px;
+}
+
+.blind{
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:200;
+    background:black;
+    opacity:0.5;
+}
