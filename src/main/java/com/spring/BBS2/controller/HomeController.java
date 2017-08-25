@@ -30,6 +30,7 @@ import com.spring.BBS2.service.IServiceUser;
  * Handles requests for the application home page.
  */
 @Controller
+@RequestMapping("/bbs2")
 public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
@@ -51,7 +52,7 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "home";
+		return "index";
 	}
 	
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
@@ -99,7 +100,7 @@ public class HomeController {
         int result = svruser.insertUser(user);
         
         if(result == 1 ){
-            return "redirect:/joinresult";
+            return "redirect:/bbs2/joinresult";
         }else{
             return "/join";
         }
@@ -131,7 +132,7 @@ public class HomeController {
         logger.info("login get");
       
         if(session.getAttribute(WebConstants.SESSION_NAME) != null){
-            return "redirect:/";
+            return "redirect:/bbs2/";
         }
         
         if(url.isEmpty())
@@ -190,7 +191,7 @@ public class HomeController {
       
         session.removeAttribute(WebConstants.SESSION_NAME);
         
-        return "redirect:/";
+        return "redirect:/bbs2/";
     }
 	
 	@RequestMapping(value = "/cuser", method = RequestMethod.GET)
@@ -216,7 +217,7 @@ public class HomeController {
         String userpwd = user.getPassword();
         
         if(userpwd.equals(password)){
-            return "redirect:/myinfo";
+            return "redirect:/bbs2/myinfo";
         }
         else{
             return "bbs/cuser";
@@ -257,7 +258,7 @@ public class HomeController {
         ModelUser searchValue = (ModelUser)session.getAttribute(WebConstants.SESSION_NAME);
         
         if(searchValue == null){
-            return "redirect:/login";
+            return "redirect:/bbs2/login";
         }
         
         
@@ -265,7 +266,7 @@ public class HomeController {
         
         if(result == 1){
             session.setAttribute(WebConstants.SESSION_NAME, svruser.selectUser(searchValue.getUserno()));
-            return "redirect:/myinfo";
+            return "redirect:/bbs2/myinfo";
         }else{
             return "bbs/usermodify";
         }
@@ -307,7 +308,7 @@ public class HomeController {
         ModelUser user = (ModelUser) session.getAttribute(WebConstants.SESSION_NAME);
         
         if(user == null){
-            return "redirect:/user/login";
+            return "redirect:/bbs2/user/login";
         }
         
         model.addAttribute("user",user);
@@ -329,7 +330,7 @@ public class HomeController {
             session.setAttribute(WebConstants.SESSION_NAME, svruser.selectUser(user.getUserno()));
             return "bbs/pwdmodify_ok";
         }else{
-            return "redirect:/bbs/pwdmodify";
+            return "redirect:/bbs2/bbs/pwdmodify";
         }
         
     }

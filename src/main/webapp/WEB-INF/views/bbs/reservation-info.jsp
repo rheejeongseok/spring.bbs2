@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>reservation</title>
-    <link rel="stylesheet" type="text/css" href="/resources/css/common.css">
-    <link rel="stylesheet" type="text/css" href="/resources/css/reservation-info.css">
-    <script type="text/javascript" src="/resources/js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="/resources/js/common.js"></script>
+    <link rel="stylesheet" type="text/css" href="/resources/bbs2/css/common.css">
+    <link rel="stylesheet" type="text/css" href="/resources/bbs2/css/reservation-info.css">
+    <script type="text/javascript" src="/resources/bbs2/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="/resources/bbs2/js/common.js"></script>
 </head>
 <body>
     <div class="wrap">
         <div class="header"><%@ include file="guide/header.jsp" %></div>
         <div class="content">
             <div class="section1">
-                <img src="/resources/img/mainTypo01.png" alt="" class="main_tp">
+                <img src="/resources/bbs2/img/mainTypo01.png" alt="" class="main_tp">
                 <ul>
-                    <li><a href="javascript:void(0)"><img src="/resources/img/about01_bg.jpg" alt=""></a></li>
+                    <li><a href="javascript:void(0)"><img src="/resources/bbs2/img/about01_bg.jpg" alt=""></a></li>
                 </ul>
                 <div class="slider_line1"></div>
             </div>
@@ -30,7 +30,7 @@
             <div class="section3">
                 <div class="section_left">
                     <ul>
-                        <li><img src="/resources/img/r-img01.jpg" alt=""></li>
+                        <li><img src="/resources/bbs2/img/r-img01.jpg" alt=""></li>
                     </ul>
                 </div>
                 <div class="section_right">
@@ -49,7 +49,7 @@
             <div class="section4">
                 <div class="section_left">
                     <ul>
-                        <li><img src="/resources/img/r-img02.jpg" alt=""></li>
+                        <li><img src="/resources/bbs2/img/r-img02.jpg" alt=""></li>
                     </ul>
                 </div>
                 <div class="section_right">
@@ -70,7 +70,7 @@
             <div class="section5">
                 <div class="section_left">
                     <ul>
-                        <li><img src="/resources/img/r-img03.jpg" alt=""></li>
+                        <li><img src="/resources/bbs2/img/r-img03.jpg" alt=""></li>
                     </ul>
                 </div>
                 <div class="section_right">
@@ -92,7 +92,7 @@
             <div class="section6">
                 <div class="section_left">
                     <ul>
-                        <li><img src="/resources/img/r-img04.jpg" alt=""></li>
+                        <li><img src="/resources/bbs2/img/r-img04.jpg" alt=""></li>
                     </ul>
                 </div>
                 <div class="section_right">

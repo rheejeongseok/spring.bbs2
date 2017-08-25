@@ -50,13 +50,14 @@ var sendPost = function sendPost(url,params) {
 };
 
 
-var deleteAttachFile = function deleteAttachFile(attachfileno) {
+var deleteimgfile = function deleteimgfile(articleno,uploadImageNo) {
+	
 	var chk = confirm("정말로 삭제하시겠습니까?");
 	if (chk==true) {
 
 	    $.ajax({
-	        url : '/board/attachfiledelete',
-	        data: { 'attachfileno': attachfileno },   // 사용하는 경우에는 { data1:'test1', data2:'test2' }
+	        url : '/bbs2/deleteimgfile',
+	        data: { 'articleno': articleno,'uploadImageNo':uploadImageNo },   // 사용하는 경우에는 { data1:'test1', data2:'test2' }
 	        type: 'post',       // get, post
 	        timeout: 30000,     // 30초
 	        dataType: 'html',   // text, html, xml, json, jsonp, script
@@ -77,7 +78,7 @@ var deleteAttachFile = function deleteAttachFile(attachfileno) {
 var commentadd = function commentadd(articleno, text) {
 
     $.ajax({
-        url : '/commentadd',
+        url : '/bbs2/commentadd',
         data: { 'articleno': articleno, 'text': text },   // 사용하는 경우에는 { data1:'test1', data2:'test2' }
         type: 'post',       // get, post
         timeout: 30000,     // 30초
@@ -109,7 +110,7 @@ var commentupdate = function commentupdate(commentno,memo) {
     var textarea = $('div[commentno^="' + commentno + '"]').find('div[class^="content_text"] textarea').val();
     
     $.ajax({
-        url : '/commentupdate',
+        url : '/bbs2/commentupdate',
         data: { 'commentnoo': commentno, 'memo' : memo },   // 사용하는 경우에는 { data1:'test1', data2:'test2' }
         type: 'post',       // get, post
         timeout: 30000,     // 30초
@@ -117,8 +118,9 @@ var commentupdate = function commentupdate(commentno,memo) {
     }).done( function(data, textStatus, xhr ){
         // 통신이 성공적으로 이루어졌을 때 이 함수를 타게 된다.
         if(data == 1 || data == 0){
+        	var repT = $('div[commentno^="' + commentno + '"]').find('div[class^="content_text"] textarea').val().replace(/\n/g, "<br>");
             $('div[commentno^="' + commentno + '"]').find('div[class^="content_text"]').children('textarea').remove();
-            $('div[commentno^="' + commentno + '"]').find('div[class^="content_text"]').text(textarea);
+            $('div[commentno^="' + commentno + '"]').find('div[class^="content_text"]').html(repT);
         }
         else {
             alert( '댓글 수정 실패');
@@ -133,7 +135,7 @@ var commentdelete = function commentdelete(commentno) {
     if (chk==true) {
 
         $.ajax({
-            url : '/commentdelete',
+            url : '/bbs2/commentdelete',
             data: { 'commentno': commentno },   // 사용하는 경우에는 { data1:'test1', data2:'test2' }
             type: 'post',       // get, post
             timeout: 30000,    // 30초

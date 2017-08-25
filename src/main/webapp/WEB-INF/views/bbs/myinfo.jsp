@@ -5,11 +5,11 @@
 <head>
 	<meta charset="UTF-8">
 	<title>join</title>
-	<link rel="stylesheet" type="text/css" href="/resources/css/common.css">
-	<link rel="stylesheet" type="text/css" href="/resources/css/join.css">
-	<script type="text/javascript" src="/resources/js/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript" src="/resources/js/common.js"></script>
-    <script type="text/javascript" src="/resources/js/join.js"></script>
+	<link rel="stylesheet" type="text/css" href="/resources/bbs2/css/common.css">
+	<link rel="stylesheet" type="text/css" href="/resources/bbs2/css/join.css">
+	<script type="text/javascript" src="/resources/bbs2/js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="/resources/bbs2/js/common.js"></script>
+    <script type="text/javascript" src="/resources/bbs2/js/join.js"></script>
    <script>
    $(function(){
 	   $('.popuserdelete').click(function(){
@@ -23,7 +23,7 @@
 		   var password = $('.del_box input').val();
 		   
 		   $.ajax({
-               url : '/userdelete',
+               url : '/bbs2/userdelete',
                data: { 'userid': userid,'password':password },   // 사용하는 경우에는 { data1:'test1', data2:'test2' }
                type: 'post',       // get, post
                timeout: 30000,    // 30초
@@ -32,7 +32,7 @@
                // 통신이 성공적으로 이루어졌을 때 이 함수를 타게 된다.
                if(data == 1){
             	   
-                   window.location.href = "/byebye";
+                   window.location.href = "/bbs2/byebye";
                    
                }
                else if(data == 0){
@@ -52,9 +52,9 @@
 		<div class="header"><%@ include file="guide/header.jsp" %></div>
 		<div class="content">
 			<div class="section1">
-				<img src="/resources/img/mainTypo01.png" alt="" class="main_tp">
+				<img src="/resources/bbs2/img/mainTypo01.png" alt="" class="main_tp">
 				<ul>
-					<li><a href="javascript:void(0)"><img src="/resources/img/about01_bg.jpg" alt=""></a></li>
+					<li><a href="javascript:void(0)"><img src="/resources/bbs2/img/about01_bg.jpg" alt=""></a></li>
 				</ul>
 				<div class="slider_line1"></div>
 			</div>
@@ -91,7 +91,7 @@
                                     <td class="info_title">전화번호</td>
                                     <td>${user.phone }</td>
                                 </tr>
-                                <tr><td colspan="2" class="modifyBtns" ><a href="/usermodify" class="usermodify">정보수정</a><a href="/pwdmodify" class="userpwdchange">비밀번호 변경</a><a href="javascript:void(0)" class="popuserdelete">회원탈퇴</a></td></tr>
+                                <tr><td colspan="2" class="modifyBtns" ><a href="/bbs2/usermodify" class="usermodify">정보수정</a><a href="/bbs2/pwdmodify" class="userpwdchange">비밀번호 변경</a><a href="javascript:void(0)" class="popuserdelete">회원탈퇴</a></td></tr>
                             </table>
                     </div>
                   

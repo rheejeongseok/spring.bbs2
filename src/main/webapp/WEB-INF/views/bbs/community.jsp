@@ -5,25 +5,25 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Community</title>
-	<link rel="stylesheet" type="text/css" href="/resources/css/common.css">
-	<link rel="stylesheet" type="text/css" href="/resources/css/community.css">
-	<script type="text/javascript" src="/resources/js/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript" src="/resources/js/common.js"></script>
+	<link rel="stylesheet" type="text/css" href="/resources/bbs2/css/common.css">
+	<link rel="stylesheet" type="text/css" href="/resources/bbs2/css/community.css">
+	<script type="text/javascript" src="/resources/bbs2/js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="/resources/bbs2/js/common.js"></script>
     <script>
     function goView(articleno) {
-        window.location.href = "/communityview/${boardcd}/"+articleno+"?curPage=${curPage}&searchWord=${searchWord}"
+        window.location.href = "/bbs2/communityview/${boardcd}/"+articleno+"?curPage=${curPage}&searchWord=${searchWord}"
     }
     $(function(){
     	
     	$('#paging>span[class!="bbs-strong"]').click(function(){
             var page = $(this).attr('articleno');
             console.log(page);
-            window.location.href = "/community/${boardcd}?curPage="+page+"&searchWord=${searchWord}"
+            window.location.href = "/bbs2/community/${boardcd}?curPage="+page+"&searchWord=${searchWord}"
         })
         
         $('.write_not').click(function(){
         	alert("로그인을 해야합니다.");
-        	window.location.href = "/login";
+        	window.location.href = "/bbs2/login";
         })
       
     })
@@ -34,9 +34,9 @@
 		<div class="header"><%@ include file="guide/header.jsp" %></div>
 		<div class="content">
 			<div class="section1">
-				<img src="/resources/img/mainTypo01.png" alt="" class="main_tp">
+				<img src="/resources/bbs2/img/mainTypo01.png" alt="" class="main_tp">
 				<ul>
-					<li><a href="javascript:void(0)"><img src="/resources/img/c-img03.jpg" alt=""></a></li>
+					<li><a href="javascript:void(0)"><img src="/resources/bbs2/img/c-img03.jpg" alt=""></a></li>
 				</ul>
 				<div class="slider_line1"></div>
 			</div>
