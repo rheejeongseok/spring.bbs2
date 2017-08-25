@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring.BBS2.common.PagingHelper;
-import com.spring.BBS2.common.WebConstants;
+import com.spring.BBS2.common.Bbs2WebConstants;
 import com.spring.BBS2.model.ModelArticle;
 import com.spring.BBS2.model.ModelComments;
 import com.spring.BBS2.model.ModelUploadImage;
@@ -122,7 +122,7 @@ public class BoardController {
         model.addAttribute("curPage",curPage);
         model.addAttribute("searchWord",searchWord);
         
-        ModelUser user  = (ModelUser)session.getAttribute(WebConstants.SESSION_NAME);
+        ModelUser user  = (ModelUser)session.getAttribute(Bbs2WebConstants.SESSION_NAME);
 
         article.setUserid(user.getUserid());
 
@@ -280,7 +280,7 @@ public class BoardController {
             ,@RequestParam(value="text",defaultValue="")String text
             ,HttpSession session) {
         
-	    ModelUser user = (ModelUser) session.getAttribute(WebConstants.SESSION_NAME);
+	    ModelUser user = (ModelUser) session.getAttribute(Bbs2WebConstants.SESSION_NAME);
 	    
 	    Map<String, Object> map = new HashMap<String,Object>();
 	    
@@ -319,7 +319,7 @@ public class BoardController {
        
 	    logger.info("commentupdate");
 	    
-	    ModelUser user = (ModelUser) session.getAttribute(WebConstants.SESSION_NAME);
+	    ModelUser user = (ModelUser) session.getAttribute(Bbs2WebConstants.SESSION_NAME);
         
 	    /*ModelComments commget = new ModelComments(commentno,text);*/
 	    

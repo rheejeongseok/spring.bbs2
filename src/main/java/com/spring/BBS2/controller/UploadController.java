@@ -22,7 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.spring.BBS2.model.ModelUploadFile;
 import com.spring.BBS2.model.ModelUploadImage;
-import com.spring.BBS2.repository.RepositoryFiles;
+import com.spring.BBS2.repository.Bbs2RepositoryFiles;
 import com.spring.BBS2.service.IServiceUpload;
 
 
@@ -94,7 +94,7 @@ public class UploadController  {
      */
     @RequestMapping(value = "/upload/fileuploadmulti", method = RequestMethod.POST)
     public String fileuploadmulti( Model model
-            , @ModelAttribute RepositoryFiles uploadForm
+            , @ModelAttribute Bbs2RepositoryFiles uploadForm
             , @RequestParam String upDir ) throws IllegalStateException, IOException  {
 
         logger.info("UploadController.fileuploadmulti");

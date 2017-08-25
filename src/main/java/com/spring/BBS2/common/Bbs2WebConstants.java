@@ -1,6 +1,6 @@
 package com.spring.BBS2.common;
 
-public class WebConstants {
+public class Bbs2WebConstants {
 
     // upload path
     public static final String UPLOAD_PATH = "D:/upload/";
