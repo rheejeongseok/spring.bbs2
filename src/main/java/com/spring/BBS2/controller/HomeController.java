@@ -30,7 +30,6 @@ import com.spring.BBS2.service.IServiceUser;
  * Handles requests for the application home page.
  */
 @Controller
-@RequestMapping("/bbs2")
 public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);

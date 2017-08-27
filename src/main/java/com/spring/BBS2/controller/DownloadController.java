@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/bbs2")
 public class DownloadController  {
 
 	@RequestMapping(value="/download", method=RequestMethod.POST)

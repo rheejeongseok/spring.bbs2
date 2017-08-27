@@ -37,7 +37,6 @@ import com.spring.BBS2.service.IServiceUpload;
  * Handles requests for the application home page.
  */
 @Controller
-@RequestMapping("/bbs2")
 public class BoardController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);

@@ -27,7 +27,6 @@ import com.spring.BBS2.service.IServiceUpload;
 
 
 @Controller
-@RequestMapping("/bbs2")
 public class UploadController  {
 
     private static final Logger logger = LoggerFactory.getLogger(UploadController.class);
