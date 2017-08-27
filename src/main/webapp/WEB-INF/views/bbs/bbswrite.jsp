@@ -3,10 +3,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Community</title>
-	<link rel="stylesheet" type="text/css" href="/resources/css/common.css">
-	<link rel="stylesheet" type="text/css" href="/resources/css/bbswrite.css">
-	<script type="text/javascript" src="/resources/js/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript" src="/resources/js/common.js"></script>
+	<link rel="stylesheet" type="text/css" href="/resources/bbs2/css/common.css">
+	<link rel="stylesheet" type="text/css" href="/resources/bbs2/css/bbswrite.css">
+	<script type="text/javascript" src="/resources/bbs2/js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="/resources/bbs2/js/common.js"></script>
     <script>
      $(function(){
     	 $('.write_btn').click(function(){
@@ -27,9 +27,9 @@
 		<div class="header"><%@ include file="guide/header.jsp" %></div>
 		<div class="content">
 			<div class="section1">
-				<img src="/resources/img/mainTypo01.png" alt="" class="main_tp">
+				<img src="/resources/bbs2/img/mainTypo01.png" alt="" class="main_tp">
 				<ul>
-					<li><a href="javascript:void(0)"><img src="/resources/img/01_01.jpg" alt=""></a></li>
+					<li><a href="javascript:void(0)"><img src="/resources/bbs2/img/01_01.jpg" alt=""></a></li>
 				</ul>
 				<div class="slider_line1"></div>
 			</div>
@@ -42,7 +42,7 @@
                 <div class="bbs_title">${boardnm }</div>
                 <div class="section2_bbs">
                     <div class="bbs_wrap">
-                    <form action="/bbswrite/${boardcd}" method="post">
+                    <form action="/bbs2/bbswrite/${boardcd}" method="post" enctype="multipart/form-data">
                         <p style="margin: 0; padding: 0;">
                             <input type="hidden" name="boardcd" value="${boardcd }" />
                         </p>
@@ -64,7 +64,7 @@
                             <td><textarea  name="content" class="form-control text_area" maxlength="5000" style="width:90%; background-color:#f5f5f5; margin:9px auto; height:100px; border:none; margin:5px auto; padding-left:20px;"></textarea></td>
                         </tr>
                         <tr>
-                            <td colspan="2"><input type="button" class="write_btn" value="글쓰기"></td>
+                            <td colspan="2"><input type="text" name="upDir" value="c:/upload/" /><input type="file" name="image"/><input type="button" class="write_btn" value="글쓰기"></td>
                         </tr>
                         </table>
                     </form>

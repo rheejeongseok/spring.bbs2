@@ -3,29 +3,29 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Index</title>
-	<link rel="stylesheet" type="text/css" href="/resources/css/common.css">
-	<link rel="stylesheet" type="text/css" href="/resources/css/index.css">
-	<script type="text/javascript" src="/resources/js/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript" src="/resources/js/common.js"></script>
-	<script type="text/javascript" src="/resources/js/index.js"></script>
-	<script type="text/javascript" src="/resources/js/slick.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/resources/bbs2/css/common.css">
+	<link rel="stylesheet" type="text/css" href="/resources/bbs2/css/index.css">
+	<script type="text/javascript" src="/resources/bbs2/js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="/resources/bbs2/js/common.js"></script>
+	<script type="text/javascript" src="/resources/bbs2/js/index.js"></script>
+	<script type="text/javascript" src="/resources/bbs2/js/slick.min.js"></script>
 </head>
 <body>
 	<div class="wrap">
 		<div class="header"><%@ include file="guide/header.jsp" %></div>
 		<div class="content">
 			<div class="section1">
-				<img src="/resources/img/mainTypo01.png" alt="" class="main_tp">
+				<img src="/resources/bbs2/img/mainTypo01.png" alt="" class="main_tp">
 				<ul>
-					<li class="on"><a href="javascript:void(0)"><img src="/resources/img/01_01.jpg" alt=""></a></li>
-					<li><a href="javascript:void(0)"><img src="/resources/img/01_02.jpg" alt=""></a></li>
-					<li><a href="javascript:void(0)"><img src="/resources/img/01_03.jpg" alt=""></a></li>
-					<li><a href="javascript:void(0)"><img src="/resources/img/01_04.jpg" alt=""></a></li>
-					<li><a href="javascript:void(0)"><img src="/resources/img/01_05.jpg" alt=""></a></li>
-					<li><a href="javascript:void(0)"><img src="/resources/img/01_06.jpg" alt=""></a></li>
-					<li><a href="javascript:void(0)"><img src="/resources/img/01_07.jpg" alt=""></a></li>
-					<li><a href="javascript:void(0)"><img src="/resources/img/01_08.jpg" alt=""></a></li>
-					<li><a href="javascript:void(0)"><img src="/resources/img/01_09.jpg" alt=""></a></li>
+					<li class="on"><a href="javascript:void(0)"><img src="/resources/bbs2/img/01_01.jpg" alt=""></a></li>
+					<li><a href="javascript:void(0)"><img src="/resources/bbs2/img/01_02.jpg" alt=""></a></li>
+					<li><a href="javascript:void(0)"><img src="/resources/bbs2/img/01_03.jpg" alt=""></a></li>
+					<li><a href="javascript:void(0)"><img src="/resources/bbs2/img/01_04.jpg" alt=""></a></li>
+					<li><a href="javascript:void(0)"><img src="/resources/bbs2/img/01_05.jpg" alt=""></a></li>
+					<li><a href="javascript:void(0)"><img src="/resources/bbs2/img/01_06.jpg" alt=""></a></li>
+					<li><a href="javascript:void(0)"><img src="/resources/bbs2/img/01_07.jpg" alt=""></a></li>
+					<li><a href="javascript:void(0)"><img src="/resources/bbs2/img/01_08.jpg" alt=""></a></li>
+					<li><a href="javascript:void(0)"><img src="/resources/bbs2/img/01_09.jpg" alt=""></a></li>
 				</ul>
 				<div class="slider_line1"></div>
 				<div class="slider_line2"></div>
@@ -58,13 +58,13 @@
 			<div class="section3">
 				<div class="section_left">
 					<ul>
-						<li class="on"><img src="/resources/img/roomImg01.jpg" alt=""></li>
-						<li><img src="/resources/img/roomImg02.jpg" alt=""></li>
-						<li><img src="/resources/img/roomImg03.jpg" alt=""></li>
-						<li><img src="/resources/img/roomImg04.jpg" alt=""></li>
-						<li><img src="/resources/img/roomImg05.jpg" alt=""></li>
-						<li><img src="/resources/img/roomImg06.jpg" alt=""></li>
-						<li><img src="/resources/img/roomImg07.jpg" alt=""></li>
+						<li class="on"><img src="/resources/bbs2/img/roomImg01.jpg" alt=""></li>
+						<li><img src="/resources/bbs2/img/roomImg02.jpg" alt=""></li>
+						<li><img src="/resources/bbs2/img/roomImg03.jpg" alt=""></li>
+						<li><img src="/resources/bbs2/img/roomImg04.jpg" alt=""></li>
+						<li><img src="/resources/bbs2/img/roomImg05.jpg" alt=""></li>
+						<li><img src="/resources/bbs2/img/roomImg06.jpg" alt=""></li>
+						<li><img src="/resources/bbs2/img/roomImg07.jpg" alt=""></li>
 					</ul>
 					<div class="visible"></div>
 				</div>
@@ -75,7 +75,7 @@
 				</div>
 
 				<div class="section_right">
-					<div class="roomview"><img src="/resources/img/room_icon01.png" alt=""></div>
+					<div class="roomview"><img src="/resources/bbs2/img/room_icon01.png" alt=""></div>
 					<div class="section3_text">
                         전주 한옥숙박 체험관에서 즐기다! <br><br>
                         60년전에 신축한 저희집 한옥소개 <br>
@@ -94,7 +94,7 @@
 			</div>
 			<div class="section4">
 				<div class="section_left">
-					<div class="cafe"><img src="/resources/img/room_icon02.png" alt=""></div>
+					<div class="cafe"><img src="/resources/bbs2/img/room_icon02.png" alt=""></div>
 					<div class="section4_text">
                         전주한옥숙박체험관 카페에서 즐기다! <br><br>
                         작은 카페에 소박한 정성을 담아 머무는<br>
@@ -112,10 +112,10 @@
 				</div>
 				<div class="section_right">
 					<ul>
-						<li class="on"><img src="/resources/img/roomImg10.jpg" alt=""></li>
-						<li><img src="/resources/img/roomImg08.jpg" alt=""></li>
-						<li><img src="/resources/img/roomImg09.jpg" alt=""></li>
-						<li><img src="/resources/img/roomImg10.jpg" alt=""></li>
+						<li class="on"><img src="/resources/bbs2/img/roomImg10.jpg" alt=""></li>
+						<li><img src="/resources/bbs2/img/roomImg08.jpg" alt=""></li>
+						<li><img src="/resources/bbs2/img/roomImg09.jpg" alt=""></li>
+						<li><img src="/resources/bbs2/img/roomImg10.jpg" alt=""></li>
 					</ul>
 					<div class="visible"></div>
 				</div>
@@ -127,8 +127,8 @@
 
 			</div>
 			<div class="section5">
-				<img src="/resources/img/lamerleciel_view.jpg" alt="" class="section5_view">
-				<img src="/resources/img/lamerleciel_text.png" alt="" class="section5_text">
+				<img src="/resources/bbs2/img/lamerleciel_view.jpg" alt="" class="section5_view">
+				<img src="/resources/bbs2/img/lamerleciel_text.png" alt="" class="section5_text">
 			</div>
 			<div class="section6">
 				<div class="section6_top">
@@ -139,31 +139,31 @@
 				<div class="section6_list">
                     <ul class="slick">
                         <li>
-                            <img src="/resources/img/serviceImg01.jpg" alt="" class="list_img">
+                            <img src="/resources/bbs2/img/serviceImg01.jpg" alt="" class="list_img">
                             <span class="list_title">카페</span>
                             <span class="list_sub">...CAFE...</span>
                             <a href="" class="more_btn">MORE</a>
                         </li>
                         <li>
-                            <img src="/resources/img/serviceImg02.jpg" alt="" class="list_img">
+                            <img src="/resources/bbs2/img/serviceImg02.jpg" alt="" class="list_img">
                             <span class="list_title">셀프조식</span>
                             <span class="list_sub">...BREAKFAST...</span>
                             <a href="" class="more_btn">MORE</a>
                         </li>
                         <li>
-                            <img src="/resources/img/serviceImg03.jpg" alt="" class="list_img">
+                            <img src="/resources/bbs2/img/serviceImg03.jpg" alt="" class="list_img">
                             <span class="list_title">한옥마을체험</span>
                             <span class="list_sub">...EXPERIENCE...</span>
                             <a href="" class="more_btn">MORE</a>
                         </li>
                         <li>
-                            <img src="/resources/img/serviceImg04.jpg" alt="" class="list_img">
+                            <img src="/resources/bbs2/img/serviceImg04.jpg" alt="" class="list_img">
                             <span class="list_title">시티투어50%할인</span>
                             <span class="list_sub">...CITY TOUR...</span>
                             <a href="" class="more_btn">MORE</a>
                         </li>
                         <li>
-                            <img src="/resources/img/serviceImg02.jpg" alt="" class="list_img">
+                            <img src="/resources/bbs2/img/serviceImg02.jpg" alt="" class="list_img">
                             <span class="list_title">셀프조식</span>
                             <span class="list_sub">...BREAKFAST...</span>
                             <a href="" class="more_btn">MORE</a>

@@ -3,27 +3,27 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Room</title>
-	<link rel="stylesheet" type="text/css" href="/resources/css/common.css">
-	<link rel="stylesheet" type="text/css" href="/resources/css/room.css">
-	<script type="text/javascript" src="/resources/js/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript" src="/resources/js/common.js"></script>
-	<script type="text/javascript" src="/resources/js/index.js"></script>
-	<script type="text/javascript" src="/resources/js/slick.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/resources/bbs2/css/common.css">
+	<link rel="stylesheet" type="text/css" href="/resources/bbs2/css/room.css">
+	<script type="text/javascript" src="/resources/bbs2/js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="/resources/bbs2/js/common.js"></script>
+	<script type="text/javascript" src="/resources/bbs2/js/index.js"></script>
+	<script type="text/javascript" src="/resources/bbs2/js/slick.min.js"></script>
 </head>
 <body>
 	<div class="wrap">
 		<div class="header"><%@ include file="guide/header.jsp" %></div>
 		<div class="content">
 			<div class="section1">
-				<img src="/resources/img/mainTypo01.png" alt="" class="main_tp">
+				<img src="/resources/bbs2/img/mainTypo01.png" alt="" class="main_tp">
 				<ul>
-					<li class="on"><a href="javascript:void(0)"><img src="/resources/img/ro-img1.jpg" alt=""></a></li>
-					<li><a href="javascript:void(0)"><img src="/resources/img/ro-img2.jpg" alt=""></a></li>
-					<li><a href="javascript:void(0)"><img src="/resources/img/ro-img3.jpg" alt=""></a></li>
-					<li><a href="javascript:void(0)"><img src="/resources/img/ro-img4.jpg" alt=""></a></li>
-					<li><a href="javascript:void(0)"><img src="/resources/img/ro-img5.jpg" alt=""></a></li>
-					<li><a href="javascript:void(0)"><img src="/resources/img/ro-img6.jpg" alt=""></a></li>
-					<li><a href="javascript:void(0)"><img src="/resources/img/ro-img7.jpg" alt=""></a></li>
+					<li class="on"><a href="javascript:void(0)"><img src="/resources/bbs2/img/ro-img1.jpg" alt=""></a></li>
+					<li><a href="javascript:void(0)"><img src="/resources/bbs2/img/ro-img2.jpg" alt=""></a></li>
+					<li><a href="javascript:void(0)"><img src="/resources/bbs2/img/ro-img3.jpg" alt=""></a></li>
+					<li><a href="javascript:void(0)"><img src="/resources/bbs2/img/ro-img4.jpg" alt=""></a></li>
+					<li><a href="javascript:void(0)"><img src="/resources/bbs2/img/ro-img5.jpg" alt=""></a></li>
+					<li><a href="javascript:void(0)"><img src="/resources/bbs2/img/ro-img6.jpg" alt=""></a></li>
+					<li><a href="javascript:void(0)"><img src="/resources/bbs2/img/ro-img7.jpg" alt=""></a></li>
 				</ul>
 				<div class="slider_line1"></div>
 				<div class="slider_line2"></div>
@@ -55,8 +55,8 @@
                 </div>
 			</div>
 			<div class="section5">
-				<img src="/resources/img/win1.jpg" alt="" class="section5_view">
-				<img src="/resources/img/lamerleciel_text.png" alt="" class="section5_text">
+				<img src="/resources/bbs2/img/win1.jpg" alt="" class="section5_view">
+				<img src="/resources/bbs2/img/lamerleciel_text.png" alt="" class="section5_text">
 			</div>
 			<div class="section6">
 				<div class="section6_top">
@@ -64,7 +64,7 @@
                     <span>간단한 조식으로 토스트빵, 커피, 삶은계란, 매실차 또는 오미자차, 과일이 제공 됩니다.</span>
                 </div>
 				<div class="section6_list">
-                    <img src="/resources/img/food.png" alt=""  style="width:80%;"/>
+                    <img src="/resources/bbs2/img/food.png" alt=""  style="width:80%;"/>
                 </div>
 			</div>
 		</div>

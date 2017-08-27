@@ -5,11 +5,11 @@
 <head>
 	<meta charset="UTF-8">
 	<title>join</title>
-	<link rel="stylesheet" type="text/css" href="/resources/css/common.css">
-	<link rel="stylesheet" type="text/css" href="/resources/css/join.css">
-	<script type="text/javascript" src="/resources/js/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript" src="/resources/js/common.js"></script>
-    <script type="text/javascript" src="/resources/js/join.js"></script>
+	<link rel="stylesheet" type="text/css" href="/resources/bbs2/css/common.css">
+	<link rel="stylesheet" type="text/css" href="/resources/bbs2/css/join.css">
+	<script type="text/javascript" src="/resources/bbs2/js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="/resources/bbs2/js/common.js"></script>
+    <script type="text/javascript" src="/resources/bbs2/js/join.js"></script>
     <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
     <script>
     //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
@@ -56,9 +56,9 @@
 		<div class="header"><%@ include file="guide/header.jsp" %></div>
 		<div class="content">
 			<div class="section1">
-				<img src="/resources/img/mainTypo01.png" alt="" class="main_tp">
+				<img src="/resources/bbs2/img/mainTypo01.png" alt="" class="main_tp">
 				<ul>
-					<li><a href="javascript:void(0)"><img src="/resources/img/about01_bg.jpg" alt=""></a></li>
+					<li><a href="javascript:void(0)"><img src="/resources/bbs2/img/about01_bg.jpg" alt=""></a></li>
 				</ul>
 				<div class="slider_line1"></div>
 			</div>
@@ -66,7 +66,7 @@
             
                 <div class="login-form">
                         <span>회원정보 수정</span>
-                        <form method="post"  action="/usermodify" enctype="application/x-www-form-urlencoded">
+                        <form method="post"  action="/bbs2/usermodify" enctype="application/x-www-form-urlencoded">
                             <table>
                             <colgroup>
                                 <col style="width:200px">
@@ -96,9 +96,7 @@
                                 <tr><td colspan="2"><input type="submit" name="" value="완료"><input type="reset" value="다시쓰기"></td></tr>
                             </table>
                         </form>
-                    </div>
-                
-                   
+                    </div>  
               </div>
 		</div>
 		<div class="footer"><%@ include file="guide/footer.jsp" %></div>

@@ -1,6 +1,7 @@
 package com.spring.BBS2.controller;
 
 import java.text.SimpleDateFormat;
+import java.util.Base64;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -23,22 +25,28 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring.BBS2.common.PagingHelper;
-import com.spring.BBS2.common.WebConstants;
+import com.spring.BBS2.common.Bbs2WebConstants;
 import com.spring.BBS2.model.ModelArticle;
 import com.spring.BBS2.model.ModelComments;
+import com.spring.BBS2.model.ModelUploadImage;
 import com.spring.BBS2.model.ModelUser;
 import com.spring.BBS2.service.IServiceBoard;
+import com.spring.BBS2.service.IServiceUpload;
 
 /**
  * Handles requests for the application home page.
  */
 @Controller
+@RequestMapping("/bbs2")
 public class BoardController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 	
 	@Autowired
 	private IServiceBoard svrboard;
+	
+	@Autowired
+	private IServiceUpload svrupload;
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
@@ -106,6 +114,7 @@ public class BoardController {
             ,@RequestParam(value="curPage"   , defaultValue="1") Integer    curPage
             ,@RequestParam(value="searchWord", defaultValue="" ) String searchWord
             ,@ModelAttribute ModelArticle article
+            ,@ModelAttribute ModelUploadImage vo
             ,@RequestParam(value="userid",defaultValue="")String userid
             ,HttpSession session) {
         logger.info("bbswrite", locale);
@@ -113,21 +122,41 @@ public class BoardController {
         model.addAttribute("curPage",curPage);
         model.addAttribute("searchWord",searchWord);
         
-        ModelUser user  = (ModelUser)session.getAttribute(WebConstants.SESSION_NAME);
+        ModelUser user  = (ModelUser)session.getAttribute(Bbs2WebConstants.SESSION_NAME);
 
         article.setUserid(user.getUserid());
 
         int result = -1;
         
         article.getContent().replaceAll("<br>", "\r\n");
-        
+       
         result = svrboard.insertArticle(article);
         
+        
+        Integer uploadno = null;
+        
+            try {
+                vo.setFileName( vo.getImage().getOriginalFilename() );
+                vo.setFileSize( (Long)vo.getImage().getSize() );
+                vo.setArticleno(article.getArticleno());
+                vo.setContentType( vo.getImage().getContentType() ); // 확장자
+                vo.setImageBytes( vo.getImage().getBytes() );
+                vo.setImageBase64( Base64.getEncoder().encodeToString( vo.getImage().getBytes() ) );
+                
+                uploadno = svrupload.insertPhoto(vo);
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                // e.printStackTrace();
+                logger.error("bbswriteget" + e.getMessage() );
+                throw e;
+            } 
+
+
         if(result == 1){
-            return "redirect:/communityview/{boardcd}/"+article.getArticleno()+"?curPage="+curPage+"&earchWord="+searchWord;
+            return "redirect:/bbs2/communityview/{boardcd}/"+article.getArticleno()+"?curPage="+curPage+"&earchWord="+searchWord;
         }
         else{
-            return "redirect:/community/free";
+            return "redirect:/bbs2/community/free";
         }        
     }
 	
@@ -155,6 +184,9 @@ public class BoardController {
         List<ModelComments> comment = svrboard.getCommentList(articleno);
         model.addAttribute("comment",comment);
         
+        List<ModelUploadImage> ulimage = svrupload.getImageByteList(articleno);
+        model.addAttribute("imagelist",ulimage);
+        
         return "bbs/communityview";
     }
 	
@@ -181,6 +213,8 @@ public class BoardController {
 	    article.setContent(replaceText);
 	    model.addAttribute("community",article);
 	    
+	    List<ModelUploadImage> upimg = svrupload.getImageByteList(articleno);
+	    model.addAttribute("upimg",upimg);
         
         return "bbs/communitymodify";
     }
@@ -216,7 +250,7 @@ public class BoardController {
         int result = svrboard.updateArticle(updateValue, searchValue);
         
         if(result == 1){
-            return "redirect:/communityview/{boardcd}/{articleno}?curPage="+curPage+"&searchWord="+searchWord;
+            return "redirect:/bbs2/communityview/{boardcd}/{articleno}?curPage="+curPage+"&searchWord="+searchWord;
         }else{
             return "bbs/communitymodify";
         }
@@ -236,7 +270,7 @@ public class BoardController {
         svrboard.deleteArticle(article);
         
         
-        return "redirect:/community/{boardcd}?curPage="+curPage;
+        return "redirect:/bbs2/community/{boardcd}?curPage="+curPage;
     }
 	
 	@RequestMapping(value = "/commentadd", method = RequestMethod.POST)
@@ -246,7 +280,7 @@ public class BoardController {
             ,@RequestParam(value="text",defaultValue="")String text
             ,HttpSession session) {
         
-	    ModelUser user = (ModelUser) session.getAttribute(WebConstants.SESSION_NAME);
+	    ModelUser user = (ModelUser) session.getAttribute(Bbs2WebConstants.SESSION_NAME);
 	    
 	    Map<String, Object> map = new HashMap<String,Object>();
 	    
@@ -285,7 +319,7 @@ public class BoardController {
        
 	    logger.info("commentupdate");
 	    
-	    ModelUser user = (ModelUser) session.getAttribute(WebConstants.SESSION_NAME);
+	    ModelUser user = (ModelUser) session.getAttribute(Bbs2WebConstants.SESSION_NAME);
         
 	    /*ModelComments commget = new ModelComments(commentno,text);*/
 	    
@@ -316,7 +350,24 @@ public class BoardController {
 
 	}
 	
-	
+	@RequestMapping(value = "/deleteimgfile", method = RequestMethod.POST)
+    @ResponseBody
+    public int deleteimgfile(Model model
+            ,@RequestParam(value="uploadImageNo",defaultValue="-1") Integer uploadImageNo
+            ,@RequestParam(value="articleno",defaultValue="") Integer articleno
+            ,HttpSession session
+            ) {
+       
+        logger.info("deleteimgfile");
+       
+        ModelUploadImage img = svrupload.getImageByteOne(articleno, uploadImageNo);
+        
+        int result = svrupload.deletePhoto(img.getArticleno(), img.getUploadImageNo());
+        
+        return result;
+           
+
+    }
 	
 	
 }

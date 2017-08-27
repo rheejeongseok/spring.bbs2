@@ -183,11 +183,22 @@ margin: 20px auto;
 
 }
 .section2 .bbs_wrap table tr:last-child td{
-	text-align: right;
+	position: relative;
 	border:none;
 	padding-top:20px;
 }
+.section2 .bbs_wrap input[type="file"]{
+    position: absolute;
+    left: 0;
+}
 .section2 .bbs_wrap .write_btn{
+    position: absolute;
+    right: 3%;
+}
+.section2 .bbs_wrap input[name="upDir"]{
+    visibility: hidden;
+}
+.section2 .bbs_wrap .modify_btn{
 	display: inline-block;
 	width: 62px;
 	height: 32px;
@@ -306,4 +317,34 @@ div[class^=content_text] textarea{
 .view_cs{
     background: #fff0f0 !important;
     padding:20px 0 !important;    
+}
+
+.imgbox{
+    text-align: center;
+}
+.imgbox img{
+    width:100% !important;
+}
+.view_content img{
+    width:200px;
+    
+}
+.imgfiles{
+    display: inline-block;
+    position: absolute;
+    left: 0;
+}
+.imgfiles input{
+    margin-left: 16px;
+    border: none;
+    padding: 5px;
+    color: black;
+    background: #ece2c0;
+    border-radius: 7px;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+}
+.ok_modify{
+    position: absolute;
+    right:0;
 }

@@ -6,22 +6,22 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Community</title>
-	<link rel="stylesheet" type="text/css" href="/resources/css/common.css">
-	<link rel="stylesheet" type="text/css" href="/resources/css/bbswrite.css">
-	<script type="text/javascript" src="/resources/js/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript" src="/resources/js/common.js"></script>
-    <script type="text/javascript" src="/resources/js/ajaxsetup.js"></script>
-    <script type="text/javascript" src="/resources/js/MyAppBoard.js"></script>
+	<link rel="stylesheet" type="text/css" href="/resources/bbs2/css/common.css">
+	<link rel="stylesheet" type="text/css" href="/resources/bbs2/css/bbswrite.css">
+	<script type="text/javascript" src="/resources/bbs2/js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="/resources/bbs2/js/common.js"></script>
+    <script type="text/javascript" src="/resources/bbs2/js/ajaxsetup.js"></script>
+    <script type="text/javascript" src="/resources/bbs2/js/MyAppBoard.js"></script>
     <script>
      $(function(){
-    	 $('.write_btn').click(function(){
+    	 $('.modify_btn').click(function(){
     		 $('form').submit();
-    		 window.location.href = "/communitymodify/${boardcd}/${articleno}?curPage=${curPage}&searchWord=${searchWord}";
+    		 window.location.href = "/bbs2/communitymodify/${boardcd}/${articleno}?curPage=${curPage}&searchWord=${searchWord}";
     		 
     	 })
     	 
     	 $('.list_btn').click(function(){
-    		 window.location.href= "/community/${boardcd}?curPage=${curPage}";
+    		 window.location.href= "/bbs2/community/${boardcd}?curPage=${curPage}";
     	 })
     	 
     	 $('.dele_btn').click(function(){
@@ -33,7 +33,7 @@
                  var articleno = $(this).attr("articleno");
                  var curPage = $(this).attr("curpage");
                  
-                 sendPost("/communitydelete/${boardcd}/${articleno}",{"boardcd":boardcd, "articleno":articleno,"curPage":curPage});
+                 sendPost("/bbs2/communitydelete/${boardcd}/${articleno}",{"boardcd":boardcd, "articleno":articleno,"curPage":curPage});
              }
              })
              
@@ -56,7 +56,7 @@
         		
         		$(this).removeClass('modifyon');
         		var commentno = $(this).parents('div[class^="comment_list"]').attr('commentno');
-                var memo = $(this).parents('div[class^="comment_list"]').find('div[class^="content_text"] textarea').val();
+                var memo = $(this).parents('div[class^="comment_list"]').find('div[class^="content_text"] textarea').val().replace(/\n/g, "<br>");
                 console.log(commentno);
                 console.log(memo);
                 
@@ -67,11 +67,12 @@
         	 else if(!$(this).is('.modifyon')){
         		   
         		$(this).addClass('modifyon');	
-        		var content_val = $(this).parents('div[class^="comment_list"]').find('div[class^="content_text"]').text();
+        		var content_val = $(this).parents('div[class^="comment_list"]').find('div[class^="content_text"]').html();
+        		var repContent = content_val.replace(/<br>/g,"\n");
                 console.log(content_val);
                 $('.form-control').attr("name","memo2")
                 $(this).parents('div[class^="comment_list"]').find('div[class^="content_text"]').text("");
-                $(this).parents('div[class^="comment_list"]').find('div[class^="content_text"]').append('<textarea name="memo">'+content_val+'</textarea>')
+                $(this).parents('div[class^="comment_list"]').find('div[class^="content_text"]').append('<textarea name="memo">'+repContent+'</textarea>')
                 
                 return false;
         	}
@@ -87,7 +88,7 @@
          $('body').on('click','.back_login',function(){
         	 
         	 alert('로그인이 필요합니다.');
-        	 window.location.href="/login";
+        	 window.location.href="/bbs2/login";
         	 
          })
          
@@ -102,9 +103,9 @@
 		<div class="header"><%@ include file="guide/header.jsp" %></div>
 		<div class="content">
 			<div class="section1">
-				<img src="/resources/img/mainTypo01.png" alt="" class="main_tp">
+				<img src="/resources/bbs2/img/mainTypo01.png" alt="" class="main_tp">
 				<ul>
-					<li><a href="javascript:void(0)"><img src="/resources/img/01_01.jpg" alt=""></a></li>
+					<li><a href="javascript:void(0)"><img src="/resources/bbs2/img/01_01.jpg" alt=""></a></li>
 				</ul>
 				<div class="slider_line1"></div>
 			</div>
@@ -136,21 +137,32 @@
                         </tr>
                         <tr>
                             <td class="view_cs">내용</td>
-                            <td style="word-break:break-all; text-align:left; padding:40px 10px">${community.content }</td>
+                            <c:choose>
+                            <c:when test="${imagelist != '' or imagelist != null }">
+                            <td class="view_content" style="word-break:break-all; text-align:left; padding:40px 10px">
+                            <c:forEach var="list" items="${imagelist }" varStatus="status">
+                            <div class="imgbox"><img src="data:${list.contentType };base64,${list.imageBase64}" alt="" /></div><br />
+                            </c:forEach>
+                            ${community.content }</td>
+                            </c:when>
+                            <c:otherwise>
+                            <td class="view_content" style="word-break:break-all; text-align:left; padding:40px 10px">${community.content }</td>
+                            </c:otherwise>
+                            </c:choose>
                         </tr>
                         <tr>
                             <c:choose>
                                 <c:when test="${user.userid == community.userid and boardcd != 'notice'}">
                                     <td colspan="2">
                                         <input type="button" class="list_btn" value="목록">
-                                        <input type="button" class="write_btn" value="수정">
+                                        <input type="button" class="modify_btn" value="수정">
                                         <input type="button" class="dele_btn" value="삭제" articleno="${community.articleno }" boardcd="${community.boardcd }" curpage="${curPage }">
                                     </td>
                                 </c:when>
                                 <c:when test="${user.userid == 'rhee' and boardcd == 'notice'}">
                                     <td colspan="2">
                                         <input type="button" class="list_btn" value="목록">
-                                        <input type="button" class="write_btn" value="수정">
+                                        <input type="button" class="modify_btn" value="수정">
                                         <input type="button" class="dele_btn" value="삭제" articleno="${community.articleno }" boardcd="${community.boardcd }" curpage="${curPage }">
                                     </td>
                                 </c:when>

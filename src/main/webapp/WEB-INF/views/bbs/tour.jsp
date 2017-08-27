@@ -3,23 +3,23 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Tour</title>
-	<link rel="stylesheet" type="text/css" href="/resources/css/common.css">
-	<link rel="stylesheet" type="text/css" href="/resources/css/tour.css">
-	<script type="text/javascript" src="/resources/js/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript" src="/resources/js/common.js"></script>
-	<script type="text/javascript" src="/resources/js/tour.js"></script>
-	<script type="text/javascript" src="/resources/js/slick.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/resources/bbs2/css/common.css">
+	<link rel="stylesheet" type="text/css" href="/resources/bbs2/css/tour.css">
+	<script type="text/javascript" src="/resources/bbs2/js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="/resources/bbs2/js/common.js"></script>
+	<script type="text/javascript" src="/resources/bbs2/js/tour.js"></script>
+	<script type="text/javascript" src="/resources/bbs2/js/slick.min.js"></script>
 </head>
 <body>
 	<div class="wrap">
 		<div class="header"><%@ include file="guide/header.jsp" %></div>
 		<div class="content">
 			<div class="section1">
-				<img src="/resources/img/mainTypo01.png" alt="" class="main_tp">
+				<img src="/resources/bbs2/img/mainTypo01.png" alt="" class="main_tp">
 				<ul>
-					<li class="on"><a href="javascript:void(0)"><img src="/resources/img/t01_01.jpg" alt=""></a></li>
-					<li><a href="javascript:void(0)"><img src="/resources/img/t01_02.jpg" alt=""></a></li>
-					<li><a href="javascript:void(0)"><img src="/resources/img/t01_03.jpg" alt=""></a></li>
+					<li class="on"><a href="javascript:void(0)"><img src="/resources/bbs2/img/t01_01.jpg" alt=""></a></li>
+					<li><a href="javascript:void(0)"><img src="/resources/bbs2/img/t01_02.jpg" alt=""></a></li>
+					<li><a href="javascript:void(0)"><img src="/resources/bbs2/img/t01_03.jpg" alt=""></a></li>
 				</ul>
 				<div class="slider_line1"></div>
 				<div class="slider_line2"></div>
@@ -50,8 +50,8 @@
 			<div class="section3">
 				<div class="section_left">
 					<ul>
-						<li class="on"><img src="/resources/img/t02_01.jpg" alt=""></li>
-						<li><img src="/resources/img/t02_02.jpg" alt=""></li>
+						<li class="on"><img src="/resources/bbs2/img/t02_01.jpg" alt=""></li>
+						<li><img src="/resources/bbs2/img/t02_02.jpg" alt=""></li>
                     </ul>
 					<div class="visible"></div>
 				</div>
@@ -90,9 +90,9 @@
 				</div>
 				<div class="section_right">
 					<ul>
-						<li class="on"><img src="/resources/img/t03_01.jpg" alt=""></li>
-						<li><img src="/resources/img/t03_02.jpg" alt=""></li>
-						<li><img src="/resources/img/t03_03.jpg" alt=""></li>
+						<li class="on"><img src="/resources/bbs2/img/t03_01.jpg" alt=""></li>
+						<li><img src="/resources/bbs2/img/t03_02.jpg" alt=""></li>
+						<li><img src="/resources/bbs2/img/t03_03.jpg" alt=""></li>
 					</ul>
 					<div class="visible"></div>
 				</div>
@@ -106,9 +106,9 @@
             <div class="section5">
                 <div class="section_left">
                     <ul>
-                        <li class="on"><img src="/resources/img/t04_01.jpg" alt=""></li>
-                        <li><img src="/resources/img/t04_02.jpg" alt=""></li>
-                        <li><img src="/resources/img/t04_03.jpg" alt=""></li>
+                        <li class="on"><img src="/resources/bbs2/img/t04_01.jpg" alt=""></li>
+                        <li><img src="/resources/bbs2/img/t04_02.jpg" alt=""></li>
+                        <li><img src="/resources/bbs2/img/t04_03.jpg" alt=""></li>
                     </ul>
                     <div class="visible"></div>
                 </div>
@@ -148,9 +148,9 @@ V.L.프와넬 신부의 설계로 건물이 완공되었다. 호남지방의 서
                 </div>
                 <div class="section_right">
                     <ul>
-                        <li class="on"><img src="/resources/img/t05_01.jpg" alt=""></li>
-                        <li><img src="/resources/img/t05_02.jpg" alt=""></li>
-                        <li><img src="/resources/img/t05_03.jpg" alt=""></li>
+                        <li class="on"><img src="/resources/bbs2/img/t05_01.jpg" alt=""></li>
+                        <li><img src="/resources/bbs2/img/t05_02.jpg" alt=""></li>
+                        <li><img src="/resources/bbs2/img/t05_03.jpg" alt=""></li>
                     </ul>
                     <div class="visible"></div>
                 </div>

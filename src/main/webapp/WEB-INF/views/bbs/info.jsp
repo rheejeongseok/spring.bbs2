@@ -3,13 +3,13 @@
 <head>
 	<meta charset="UTF-8">
 	<title>info</title>
-	<link rel="stylesheet" type="text/css" href="/resources/css/common.css">
-	<link rel="stylesheet" type="text/css" href="/resources/css/info.css">
-	<script type="text/javascript" src="/resources/js/jquery-3.2.1.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/resources/bbs2/css/common.css">
+	<link rel="stylesheet" type="text/css" href="/resources/bbs2/css/info.css">
+	<script type="text/javascript" src="/resources/bbs2/js/jquery-3.2.1.min.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPHAC2vkQYDIgH4Aw15yP01-sZlBDpHv4&callback=initMap"
     async defer></script>
-	<script type="text/javascript" src="/resources/js/common.js"></script>
-	<script type="text/javascript" src="/resources/js/info.js"></script>
+	<script type="text/javascript" src="/resources/bbs2/js/common.js"></script>
+	<script type="text/javascript" src="/resources/bbs2/js/info.js"></script>
 	<script type="text/javascript">
 		var map;
       	function initMap() {
@@ -42,9 +42,9 @@
 		<div class="header"><%@ include file="guide/header.jsp" %></div>
 		<div class="content">
 			<div class="section1">
-				<img src="/resources/img/mainTypo01.png" alt="" class="main_tp">
+				<img src="/resources/bbs2/img/mainTypo01.png" alt="" class="main_tp">
 				<ul>
-					<li><a href="javascript:void(0)"><img src="/resources/img/i-img02.jpg" alt=""></a></li>
+					<li><a href="javascript:void(0)"><img src="/resources/bbs2/img/i-img02.jpg" alt=""></a></li>
 				</ul>
 				<div class="slider_line1"></div>
 			</div>

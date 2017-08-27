@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring.BBS2.common.PagingHelper;
-import com.spring.BBS2.common.WebConstants;
+import com.spring.BBS2.common.Bbs2WebConstants;
 import com.spring.BBS2.model.ModelArticle;
 import com.spring.BBS2.model.ModelUser;
 import com.spring.BBS2.service.IServiceUser;
@@ -30,6 +30,7 @@ import com.spring.BBS2.service.IServiceUser;
  * Handles requests for the application home page.
  */
 @Controller
+@RequestMapping("/bbs2")
 public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
@@ -51,7 +52,7 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "home";
+		return "index";
 	}
 	
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
@@ -99,7 +100,7 @@ public class HomeController {
         int result = svruser.insertUser(user);
         
         if(result == 1 ){
-            return "redirect:/joinresult";
+            return "redirect:/bbs2/joinresult";
         }else{
             return "/join";
         }
@@ -130,8 +131,8 @@ public class HomeController {
             ,HttpSession session) {
         logger.info("login get");
       
-        if(session.getAttribute(WebConstants.SESSION_NAME) != null){
-            return "redirect:/";
+        if(session.getAttribute(Bbs2WebConstants.SESSION_NAME) != null){
+            return "redirect:/bbs2/";
         }
         
         if(url.isEmpty())
@@ -175,7 +176,7 @@ public class HomeController {
         ModelUser user = svruser.login(userid, password);
         
         if(user != null){
-            session.setAttribute(WebConstants.SESSION_NAME, user);
+            session.setAttribute(Bbs2WebConstants.SESSION_NAME, user);
             return 1;
         }
         else{
@@ -188,9 +189,9 @@ public class HomeController {
     public String logout(Model model,HttpSession session) {
         logger.info("login get");
       
-        session.removeAttribute(WebConstants.SESSION_NAME);
+        session.removeAttribute(Bbs2WebConstants.SESSION_NAME);
         
-        return "redirect:/";
+        return "redirect:/bbs2/";
     }
 	
 	@RequestMapping(value = "/cuser", method = RequestMethod.GET)
@@ -209,14 +210,14 @@ public class HomeController {
             ,@RequestParam(value="password",defaultValue="") String password) {
         logger.info("cuser post");
       
-        ModelUser useraa = (ModelUser) session.getAttribute(WebConstants.SESSION_NAME);
+        ModelUser useraa = (ModelUser) session.getAttribute(Bbs2WebConstants.SESSION_NAME);
         
         ModelUser user = svruser.selectUser(useraa.getUserno());
         
         String userpwd = user.getPassword();
         
         if(userpwd.equals(password)){
-            return "redirect:/myinfo";
+            return "redirect:/bbs2/myinfo";
         }
         else{
             return "bbs/cuser";
@@ -230,7 +231,7 @@ public class HomeController {
             ,HttpSession session) {
         logger.info("myinfo", locale);
         
-        ModelUser user = (ModelUser) session.getAttribute(WebConstants.SESSION_NAME);
+        ModelUser user = (ModelUser) session.getAttribute(Bbs2WebConstants.SESSION_NAME);
         
         model.addAttribute("user",user);
         
@@ -242,7 +243,7 @@ public class HomeController {
             ,HttpSession session) {
         logger.info("usermodify get", locale);
         
-        ModelUser user = (ModelUser) session.getAttribute(WebConstants.SESSION_NAME);
+        ModelUser user = (ModelUser) session.getAttribute(Bbs2WebConstants.SESSION_NAME);
         
         model.addAttribute("user",user);
         
@@ -254,18 +255,18 @@ public class HomeController {
             ,@ModelAttribute ModelUser updateValue
             ,HttpSession session) {
         logger.info("usermodify post");
-        ModelUser searchValue = (ModelUser)session.getAttribute(WebConstants.SESSION_NAME);
+        ModelUser searchValue = (ModelUser)session.getAttribute(Bbs2WebConstants.SESSION_NAME);
         
         if(searchValue == null){
-            return "redirect:/login";
+            return "redirect:/bbs2/login";
         }
         
         
         int result = svruser.updateUserInfo(updateValue, searchValue);
         
         if(result == 1){
-            session.setAttribute(WebConstants.SESSION_NAME, svruser.selectUser(searchValue.getUserno()));
-            return "redirect:/myinfo";
+            session.setAttribute(Bbs2WebConstants.SESSION_NAME, svruser.selectUser(searchValue.getUserno()));
+            return "redirect:/bbs2/myinfo";
         }else{
             return "bbs/usermodify";
         }
@@ -280,13 +281,13 @@ public class HomeController {
             ,HttpSession session) {
         logger.info("pwdmodify get");
         
-        ModelUser user = (ModelUser) session.getAttribute(WebConstants.SESSION_NAME);
+        ModelUser user = (ModelUser) session.getAttribute(Bbs2WebConstants.SESSION_NAME);
         String uid = user.getUserid();
         String upwd = user.getPassword();
         
         if(userid.equals(uid) && password.equals(upwd)){
             
-            session.removeAttribute(WebConstants.SESSION_NAME);
+            session.removeAttribute(Bbs2WebConstants.SESSION_NAME);
             svruser.deleteUser(user);
             
             return 1;
@@ -304,10 +305,10 @@ public class HomeController {
             ,HttpSession session) {
         logger.info("pwdmodify get");
         
-        ModelUser user = (ModelUser) session.getAttribute(WebConstants.SESSION_NAME);
+        ModelUser user = (ModelUser) session.getAttribute(Bbs2WebConstants.SESSION_NAME);
         
         if(user == null){
-            return "redirect:/user/login";
+            return "redirect:/bbs2/user/login";
         }
         
         model.addAttribute("user",user);
@@ -321,15 +322,15 @@ public class HomeController {
             ,@RequestParam(value="newPassword",defaultValue="") String newPassword
             ,HttpSession session) {
         logger.info("pwdmodify post");
-        ModelUser user = (ModelUser)session.getAttribute(WebConstants.SESSION_NAME);
+        ModelUser user = (ModelUser)session.getAttribute(Bbs2WebConstants.SESSION_NAME);
        
         int result = svruser.updatePasswd(newPassword, curPassword, user.getUserid());
         
         if(result == 1){
-            session.setAttribute(WebConstants.SESSION_NAME, svruser.selectUser(user.getUserno()));
+            session.setAttribute(Bbs2WebConstants.SESSION_NAME, svruser.selectUser(user.getUserno()));
             return "bbs/pwdmodify_ok";
         }else{
-            return "redirect:/bbs/pwdmodify";
+            return "redirect:/bbs2/bbs/pwdmodify";
         }
         
     }
